@@ -18,6 +18,8 @@ String.indexOf(searchValue)
 // 정규표현식으로 지정한 문자열을 인덱스, 인풋 등과 배열로 반환
 .trim()
 // 문자열에서 앞뒤 공백을 제거 
+String.repeat(count)
+// 문자열을 반복해서 반환
 ```
 ### 자바스크립트 Math
 ```javascript
