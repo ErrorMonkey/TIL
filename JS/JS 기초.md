@@ -1,17 +1,23 @@
 ```plaintext
 자주 사용하는 필수 자바스크립트 메소드 정리
-정적 메소드는 앞에 해당 타입을 기입
 ```
 
 ### 자바스크립트 String
 ```javascript
 Object.toString()
-// 호출한 객체를 문자열로 반
+// 호출한 객체를 문자열로 반환
 String.indexOf(searchValue)
 // 호출한 문자열에서 매개변수가 위치한 인덱스를 반환, 없으면 -1 반환
+String.charAt(index)
+// 지정 인덱스의 유니코드 단일문자 반환
 .slice(beginIndex, endIndex)
 // 시작 인덱스부터 문자열 반환
 // 종료 인덱스 추가하면 시작 인덱스부터 종료 인덱스 직전까지 문자열을 반환
+.split('')
+// 
+.join('')
+// '', ' '
+.reverse()
 .replace(pattern, replacement)
 // 문자열에서 패턴을 찾아서 리플레이먼트로 변환
 .match()
