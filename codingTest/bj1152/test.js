@@ -20,3 +20,6 @@ console.log(sec/30)
 let min = 35/140
 
 console.log(min)
+
+ 
+  
