@@ -94,6 +94,9 @@ Number("3.145") // 3.145
 .splice(startIndex, deleteCount, item)
 // 배열 안에서 지정한 인덱스부터 카운트만큼 데이터를 지움
 // 지정 인덱스에 item을 데이터로 끼워넣을 수도 있음
+// 배열을 수정할 뿐 변수에 바로 넣는 거 불가능
+// 프로그래머스 문자열 겹치기
+let answer = temp.splice(s, overwrite_string.length, overwrite_string).join(''); // temp에는 splice로 정리한 배열이 제대로 저장되나 answer에는 temp가 들어가는 게 아니라 splice로 자른 내용만 들어감. join도 temp만 합치고 answer에 들어가는 내용은 안 합쳐줌.
 .slice()
 // 
 ```
