@@ -2,7 +2,7 @@
 const fs = require('fs');
 let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
-let input = [['5'], ['3 4'], ['1 1'], ['1 -1'], ['2 2'], ['3 3']]
+// let input = [['5'], ['3 4'], ['1 1'], ['1 -1'], ['2 2'], ['3 3']]
 
 let arr = [];
 for(i = 1; i <= input[0]; i++) {
@@ -20,6 +20,7 @@ sort(compare1(arr));
 console.log(arr);
 ```
 // 문제 풀이 실패... 아래는 풀이 코드
+// 일단 배열 나눌 때부터 문제가 있었다 외우자
 
 const fs = require('fs');
 let input = fs.readFileSync('/dev/stdin').toString().split('\n');

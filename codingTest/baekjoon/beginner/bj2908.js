@@ -1,6 +1,6 @@
 const fs = require('fs');
 let input = fs.readFileSync('/dev/stdin').toString().split(' ');
-// 상수를 거꿀 읽는 게 상수인 상수처럼 상수를 뒤집어 반환하는 문제라...
+// 상수를 거꾸로 읽는 게 상수인 상수처럼 상수를 뒤집어 반환하는 문제라...
 
 let first = Number(input[0].split('').reverse().join(''));
 let second = parseInt(input[1].split('').reverse().join(''));
@@ -11,9 +11,7 @@ if (first > second) {
   console.log(second);
 }
 
-// 난 이렇게 풀었는데 풀이 코드를 찾아보니...
-const fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+// 난 위로 풀었는데 풀이 코드를 찾아보니...
 
 let a = input[0].split('')[0];
 let b = input[0].split('')[1];

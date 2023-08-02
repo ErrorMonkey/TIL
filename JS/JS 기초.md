@@ -8,6 +8,8 @@ Object.toString()
 // 호출한 객체를 문자열로 반환
 String.indexOf(searchValue)
 // 호출한 문자열에서 매개변수가 위치한 인덱스를 반환, 없으면 -1 반환
+.lastIndexOf()
+
 String.charAt(index)
 // 지정 인덱스의 유니코드 단일문자 반환
 .slice(beginIndex, endIndex)
@@ -16,7 +18,7 @@ String.charAt(index)
 .split('')
 // 
 .join('')
-// '', ' '
+// '', ' ' 떨어져있는 문자를 문자열로 붙여준다
 .reverse()
 .replace(pattern, replacement)
 // 문자열에서 패턴을 찾아서 리플레이먼트로 변환
