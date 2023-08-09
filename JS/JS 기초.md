@@ -45,6 +45,14 @@ Math.round(3.14)
 // 소수점 반올림 처리 output: 3
 Math.random()
 // 0부터 1 사이 난수 반환 output: 0.234251455
+**
+// 거듭 젭곱 연산자
+console.log(3 ** 4);
+// Expected output: 81
+console.log(10 ** -2);
+// Expected output: 0.01
+console.log(2 ** (3 ** 2));
+// Expected output: 512
 
 .trunc()
 
