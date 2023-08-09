@@ -1,0 +1,45 @@
+* {
+  margin-left: 10px;
+}
+body {
+  font-family: sans-serif;
+  margin-bottom: 100px;
+}
+
+h1 {
+  font-size: 50px;
+  margin: auto;
+  font-weight: 100;
+}
+
+span {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+img {
+  display: block;
+}
+
+.poster {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.5em;
+  font-weight: 300;
+}
+
+div {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 25px;
+  margin: 20px 0px;
+}
+
+li {
+  font-weight: 500px;
+  font-size: 20px;
+}

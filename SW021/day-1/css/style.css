@@ -1,0 +1,16 @@
+
+/* text에 사용하기 좋은 속성 */
+/* font-size: 절대 단위, 상대 단위, 크기, 백분율 */
+.font-size {
+  font-size: 20px;
+  /* 키워드: x-small ~ xx-large */
+  /* 상대 단위:
+    em: 부모요소
+    rem:  */
+}
+
+.font-size font-color {
+  background-color: black;
+  color: rgba(255, 0, 0, 1)
+}
+
