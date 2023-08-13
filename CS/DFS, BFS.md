@@ -10,7 +10,6 @@
 
 구현의 편리성이 있지만 완전 탐색이 목적일 때 BFS보다 느린 경향이 있다.
 
-
 ```javascript
 function dfs(graph, v, visited) {
   visited[v] = true;
