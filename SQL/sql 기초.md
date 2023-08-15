@@ -133,9 +133,13 @@ SELECT REPLACE('Hello world', 'world', 'SQL');
 SELECT 이름, REPLACE(이름, SUBSTR(이름, 2, 2), '**') FROM student;
 -- 이름 컬럼의 정보가 모두 성만 남기고 별표 처리 '김**', '이**'
 ```
-#### <code>LENGTH</code> 문자열의 길이를 알려줌
+#### <code>LENGTH</code> 문자열의 길이를 알려준다.
 ```sql
 SELECT 이름, LENGTH(이름) AS 이름 길이 FROM student;
+```
+#### <code>COUNT</code> 전체 혹은 컬럼, 행의 개수를 출력한다.
+```sql
+SELECT COUNT(이름) FROM student;
 ```
 ---
 ### 오라클만 지원하는 문자열 함수
@@ -149,29 +153,150 @@ SELECT INSTR('개발자', '발'); -- 2
 ```
 ---
 
-## 수학과 관련된 함수
+### 수학과 관련된 함수
 #### <code>ROUND</code> 지정한 자릿수만큼 소수를 반올림한다.
 ```sql
 SELECT ROUND(1학년1학기, 1) AS 반올림성적 FROM grade;
 -- 소수점 첫째 자리까지 반올림한다
 ```
-
+#### <code>MAX, MIN</code> 최댓값, 최솟값 구하기
+```sql
+SELECT 학번, MAX(1학년1학기) AS '1학년 1등' FROM grade;
+SELECT 학번, MIN(1학년1학기) AS '1학년 꼴등' FROM grade;
+```
+#### <code>SUM</code> 숫자 컬럼을 합한다
+```sql
+SELECT SUM(성적장학금) AS '성적장학금 총액' FROM scholarship;
+```
+#### <code>AVG</code> 평균값을 구한다
+```sql
+SELECT AVG(1학년1학기) AS '평균 성적' FROM grade;
+```
 ---
-## SQLite는 지원하지 않는 함수
+### SQLite는 지원하지 않는 수학 함수
 #### <code>MOD</code> 나머지 값을 반환한다.
-%로도 같은 결과 값을 가질 수 있다.
+<code>%</code>로도 같은 결과 값을 가질 수 있다.
 ```sql
 SELECT MOD(12, 5); -- 2
 ```
-
 #### <code>POWER</code> 타깃을 지정한 숫자만큼 제곱해준다.
 ```sql
 SELECT POWER(3, 2); -- 9
 ```
-
+#### <code>SQRT</code> 제곱근을 반환한다.
+```sql
+SELECT SQRT(4); -- 2
+```
 #### <code>TRUNC</code> 지정한 자릿수만큼 소수를 자른다.
 ```sql
 SELECT TRUNC(10.25, 1); -- 10.2
 ```
 
+## SQL 조건문
+DBMS마다 조건문이 조금씩 다르다.
+#### <code>CASE WHEN</code> 
+```sql
+SELECT 학과번호, 과목명, 이수구분 -- 컬럼명
+CASE
+  WHEN 이수구분 = '전필' THEN '전공 필수과목'
+  -- [조건1][결과1]
+  ELSE '전공 선택과목' -- [결과2]
+END AS '필수 및 선택과목' -- [결과를 나타낼 컬럼명]
+FROM subject;
 
+-- 조건을 여러개 건 경우
+SELECT 학번, 1학년2학기,
+CASE
+  WHEN 1학년2학기 = 4.5 THEN '신'
+  WHEN 1학년2학기 BETWEEN 4.0 AND 4.49 THEN '교수님의 귀염둥이'
+  WHEN 1학년2학기 BETWEEN 3.0 AND 3.99 THEN '일반인'
+  ELSE '오락문화의 선구자'
+END AS '학점별 분류'
+FROM grade;
+```
+
+### <code>JOIN</code> 조건에 맞는 다른 테이블의 정보를 가져온다.
+다른 테이블이 동일한 컬럼을 가지고 있어야 함. 로우 방향으로 정보를 합침.
+```sql
+SELECT [컬럼명1], [컬럼명2], ...
+FROM [테이블명1]
+INNER JOIN [테이블명2] ON [JOIN 조건]
+```
+```sql
+SELECT
+  student.이름,
+  student.학과,
+  student.지도교수,
+  professor.연구실
+FROM student
+JOIN professor ON student.학과 = professor.학과;
+
+-- 여러 테이블에서 정보를 가져올 때
+SELECT
+  student.학번,
+  student.이름 AS 학생이름,
+  professor.이름 AS 교수이름,
+  professor.이메일 AS 교수이메일,
+  scholarship.국가장학금
+FROM student
+INNER JOIN professor ON student.지도교수 = professor.이름
+INNER JOIN scholarship ON student.학번 = scholarship.학번;
+-- JOIN을 안 쓰고도 쓴 것과 같은 결과를 받는 법
+SELECT
+  student.이름,
+  student.학과,
+  student.지도교수,
+  professor.연구실
+FROM student, professor
+WHERE student.학과 = professor.학과;
+```
+#### <code>OUTER JOIN</code> 테이블 하나만 조건이 맞아도 가져온다.
+```sql
+-- LEFT OUTER JOIN 일치하는 항목이 있으면 왼쪽 테이블만 출력
+SELECT [컬럼명]
+FROM [테이블명1]
+LEFT OUTER JOIN [테이블명2] ON [조인 조건]
+-- RIGHT OUTER JOIN 일치하는 항목이 있으면 왼쪽 테이블만 출력
+SELECT [컬럼명]
+FROM [테이블명1]
+RIGHT OUTER JOIN [테이블명2] ON [조인 조건]
+-- FULL OUTER JOIN 어디나 일치하는 항목이 있으면 출력
+SELECT [컬럼명]
+FROM [테이블명1]
+FULL OUTER JOIN [테이블명2] ON [조인 조건]
+```
+### <code>UNION</code> 서로 다른 테이블의 정보를 결합한다
+컬럼 개수가 일치해야한다. <code>JOIN</code>과 다르게 컬럼방향으로 정보를 합침.  
+<code>UNION</code>은 중복을 허용하지 않음. <code>UNION ALL</code>은 중복 가능.  
+
+```sql
+SELECT 컬럼1, 컬럼2, ...
+FROM 테이블1
+집합연산자 => UNION, UNION ALL, INTERSECT, MINUS
+SELECT 컬럼1, 컬럼2, ...
+FROM 테이블2
+```
+```sql
+SELECT 학번 AS 번호, 이름
+FROM student
+UNION
+SELECT 교원번호 AS 번호, 이름
+FROM professor;
+```
+
+#### <code>GROUP BY</code> 특정 열을 기준으로 그룹화 다른 열에 붙인다.
+집계함수와 함께 사용한다. 집계함수에는 평균, 총합, 개수, 최대, 최소
+```sql
+SELECT 학년, COUNT(학년) AS "학년별 학생 수"
+FROM student
+WHERE 학년 >= 3
+GROUP BY 학년
+ORDER BY 학년 DESC;
+```
+#### <code>HAVING</code> 그룹화에 조건을 추가할 때 사용
+```sql
+SELECT 학년, COUNT(학년) AS "학년별 학생 수"
+FROM student
+GROUP BY 학년
+HAVING "학생별 학생 수 " < 25;
+```
