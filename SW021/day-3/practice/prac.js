@@ -84,10 +84,6 @@
 function replaceAll(str, from, to) {
   for(let i = 0; i < str.length; i++) {
     if (str[i] == from) {
-      // console.log(str[i]);
-      // str.slice(i, i + 1);
-      // str[i] = to;
-      // console.log(str[i]);
       str = str.replace(from, to)
     }
   }
