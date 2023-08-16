@@ -284,7 +284,7 @@ SELECT 교원번호 AS 번호, 이름
 FROM professor;
 ```
 
-#### <code>GROUP BY</code> 특정 열을 기준으로 그룹화 다른 열에 붙인다.
+#### <code>GROUP BY</code> 특정 열을 기준으로 그룹화한다.
 집계함수와 함께 사용한다. 집계함수에는 평균, 총합, 개수, 최대, 최소
 ```sql
 SELECT 학년, COUNT(학년) AS "학년별 학생 수"
@@ -293,7 +293,7 @@ WHERE 학년 >= 3
 GROUP BY 학년
 ORDER BY 학년 DESC;
 ```
-#### <code>HAVING</code> 그룹화에 조건을 추가할 때 사용
+#### <code>HAVING</code> 그룹화된 데이터에 조건을 추가할 때 사용.
 ```sql
 SELECT 학년, COUNT(학년) AS "학년별 학생 수"
 FROM student
