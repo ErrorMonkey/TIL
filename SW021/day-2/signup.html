@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="./">logo</a>
+      <div class="navbar">
+        <a href="./login.html">login</a>
+        <a href="./signup.html">sign up</a>
+      </div>
+    </header>
+    <section id="login-section">
+      <main class="login-area">
+        <h2>Sign up</h2>
+        <form class="login-box">
+          <input class="userId" type="text" placeholder="username" />
+          <div class="id failure-message hide">
+            아이디는 8글자 이상 12글자 미만 영문과 숫자만 사용해야합니다.
+          </div>
+          <div class="id success-message hide">
+            사용할 수 있는 아이디입니다.
+          </div>
+          <input type="password" class="userPw1" placeholder="password" />
+          <div class="pw failure-message hide">
+            비밀번호는 8글자 이상 영문과 숫자만 사용해야합니다.
+          </div>
+          <div class="pw success-message hide">
+            사용할 수 있는 비밀번호입니다.
+          </div>
+          <input type="password" class="userPw2" placeholder="confirm password" />
+          <div class="pw failure-message2 hide">
+            비밀번호가 같지 않습니다.
+          </div>
+          <button class="btn-login submit">Sign up</button>
+        </form>
+      </main>
+    </section>
+    <footer>© 2023 Your Company. All rights reserved.</footer>
+    <script src="signup.js"></script>
+  </body>
+</html>

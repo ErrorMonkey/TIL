@@ -12,19 +12,22 @@
       <a href="./">logo</a>
       <div class="navbar">
         <a href="./login.html">login</a>
-        <a href="./">sign up</a>
+        <a href="./signup.html">sign up</a>
       </div>
     </header>
     <section id="login-section">
       <main class="login-area">
         <h2>Login</h2>
         <form class="login-box">
-          <input type="text" placeholder="아이디" />
+          <input class="username" type="text" placeholder="아이디" />
+          <div class="failure-message hide">아이디는 여덟 글자 이상이어야 합니다.</div>
+          <div class="success-message hide">아이디 글자 수가 올바릅니다.</div>
           <input type="password" placeholder="비밀번호" />
-          <button class="btn-login">로그인</button>
+          <button class="btn-login submit">로그인</button>
         </form>
       </main>
     </section>
     <footer>© 2023 Your Company. All rights reserved.</footer>
+  <script src="login.js"></script>
   </body>
 </html>

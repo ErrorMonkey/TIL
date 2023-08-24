@@ -2,20 +2,20 @@
 // 일명 쩜쩜쩜...
 // ! 주로 배열을 풀어서 인자로 전달하거나, 배열을 풀어서 각각의 요소로 넣을 때에 사용합니다.
 
-function sum(x, y, z) {
+function sum1(x, y, z) {
   return x + y + z;
 }
 
 const numbers = [1, 2, 3];
 
-// console.log(sum(...numbers)) // ?
+console.log(sum1(...numbers)) // ? sum(1, 2, 3)과 같다
 
 // ! 배열에서 사용하기 : spread 문법은 배열에서 강력한 힘을 발휘합니다.
 // 1) 배열 합치기
 let parts = ['shoulders', 'knees'];
 let lyrics = ['head', ...parts, 'and', 'toes'];
 
-// console.log(lyrics); // ?
+console.log(lyrics); // ?
 
 // spread 문법은 기존 배열을 변경하지 않으므로(immutable), arr1의 값을 바꾸려면 새롭게 할당해야 합니다.
 let arr1 = [0, 1, 2];
@@ -26,15 +26,15 @@ arr1 = [...arr1, ...arr2];
 // 2) 배열 복사
 let arr3 = [1, 2, 3];
 let arr4 = [...arr3];
-arr4.push(4);
-// console.log(arr3, arr4); //?
+arr4.push(4); 
+// console.log(arr3, arr4); //? ! arr4는 배열이 아닌가?
 
 // ! 객체에서 사용하기
 let obj1 = { foo: 'bar', x: 42 };
 let obj2 = { foo: 'baz', y: 13 };
 
 let clonedObj = { ...obj1 };
-let mergedObj = { ...obj1, ...obj2 };
+let mergedObj = { ...obj1, ...obj2 }; // foo의 값이 obj2의 foo로 덮어 씌워진다.
 // console.log(clonedObj, mergedObj); //? 
 
 // ! 함수에서 나머지 파라미터 받아오기
@@ -53,6 +53,6 @@ function sum(...theArgs) { // theArgs = [1, 2, 3]
   });
 }
 
-// console.log(sum(1, 2, 3)); // ?
+// console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9)); // ?
 
 
