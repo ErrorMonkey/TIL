@@ -2,7 +2,8 @@
 에니악 같은 초기 컴퓨터가 다루던 데이터는 숫자 뿐이었다. 
 
 ### Primitive Type, Constants, Enumerator
-기본 데이터에는 원시 데이터라 불리는 변수, 상수, 열거형이 있다.
+C#이 제공하는 기본 데이터에는 15가지가 있다. 이 중 12가지가 숫자 데이터 형식(Numeric Types)이다.
+
 ```c#
 int x = 100;
 // 변수(variable): x와 리터럴(Literal): 100
@@ -16,7 +17,3 @@ int x = 100;
 
 ### Complex Data Type
 구조체, 클래스, 배열
-
-
-
-
