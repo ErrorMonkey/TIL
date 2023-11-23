@@ -27,12 +27,13 @@ var tester1 = {
   test1: "test1",
   gender: "male",
   1: 10,
+  '25': 24
 };
 
 console.log(tester1[1]);
+console.log(tester1[25]);
 // console.log(tester1.1)
-// 첫 글자가 숫자면 -와 마찬가지로 연산식으로 인식해서 접근 불가능
-// 얘는 왜 에러 뜸?...
+// 문자열로 확실하게 지정하지 않으면 - 를 연산자로 인식해서 접근 불가능한 것처럼 key의 첫 글자가 숫자면 마찬가지로 제대로 접근 불가
 
 // 순서가 보장되지 않는다고 했는데, 같은 순서가 반복되는 건 왜일까?
 for (let prop in tester1) {
@@ -57,3 +58,11 @@ console.log("array", array);
 array.map((el) => {
   console.log(el);
 });
+
+
+coding();
+
+function coding () {
+  
+  console.log("error")
+}

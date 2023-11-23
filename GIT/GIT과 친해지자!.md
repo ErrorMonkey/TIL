@@ -107,8 +107,21 @@ Vim 에디터로 시각적으로 잘 달라진 점을 보여준다. 내가 진�
 `$ git difftool <commit id>`  
 뒤에 커밋 아이디를 적으면 직접 비교해볼 수 있다
 
-`$ git log --oneline --all`  
+```zsh
+$ git log --oneline --graph --decorate --all
+
+# --oneline : 커밋을 한 줄로 요약
+# --graph : 커밋의 흐름을 그래프로 보여준다
+# --decorate : --decorate=short 옵션을 의미. --decorate=[=short|full|auto|no]
+# --all : 현재 branch뿐만 아닌 모든 브랜치의 커밋을 보여준다. all 옵션이 없으면 HEAD와 관계 없는 커밋은 보여주지 않는다
+```
+
 커밋 내역과 아이디를 확인할 수 있다
+
+> 진짜 많이 하는 실수  
+> `$ git pull origin 로컬의-branch이름`  
+> 오리진에서 로컬의 브랜치로 내려달라는 뜻이다. push도 마찬가지.
+> 많은 사람들이 저장소의 브랜치로 헷갈려했다.
 
 ### 3차 뇌정지 순간
 
@@ -140,13 +153,16 @@ Vim 에디터로 시각적으로 잘 달라진 점을 보여준다. 내가 진�
 `$ git branch -M 브랜치 이름`  
 메인 브랜치를 정할 수 있다.
 
+`$ git branch -m 브랜치 이름`  
+해당 브랜치로 이동한 상태에서 브랜치 이름을 수정할 수 있다.
+
 `$ git switch 옮겨갈 브랜치 이름`  
 브랜치를 옮겨다닐 수 있다.
 
 `$ git log --oneline --all --graph`  
 브랜치가 갈라지고 커밋한 기록을 시각적으로 보여줌. Head는 현재 머물고 있는 브랜치를 표시. 리누스 토발즈 네이밍 센스 좀 쩌는 듯.ㅎㅎ
 
-`$ git merge <합칠 브랜치 이름>`
+`$ git merge 합칠-브랜치-이름`  
 메인 브랜치에서 다른 브랜치를 메인 브랜치로 합치기
 
 ---
